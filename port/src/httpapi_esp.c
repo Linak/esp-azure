@@ -1,5 +1,5 @@
 /*
- * httpapi_es.h
+ * httpapi_esp.h
  *
  *  Created on: Aug 15, 2019
  *      Author: kibo
@@ -8,7 +8,9 @@
  *
  *      There are certain limitations:
  *      - Supports only POST and GET
- *      - SetOption/CloneOption not supported
+ *      - SetOption supports the following option(s):
+ *           OPTION_RESP_CB_FUNC  - Install a callback for partial handling of responses
+ *      - CloneOption not supported
  *      - Only https is supported
  */
 
@@ -19,6 +21,8 @@
 #include "certs.h"
 #include "esp_http_client.h"
 #include <stdio.h>
+#include "httpapi_adapter.h"
+#include <string.h>
 
 /// Instance data
 typedef struct HTTP_HANDLE_DATA_TAG
@@ -34,6 +38,16 @@ typedef struct HTTP_HANDLE_DATA_TAG
 
     /// Handle to response body
     BUFFER_HANDLE       respBody;
+
+    /// Pointer to status code of request
+    unsigned int* statusCode;
+
+    /// Callback for partial handling of responses
+    HttpApiResponseCbFuncType    respCb;
+
+    /// Argument given to callback. User defined content
+    void*                        respArg;
+
 } EspHttpApiHandle;
 
 /* @brief Helper for building the request
@@ -76,6 +90,7 @@ HTTP_HANDLE HTTPAPI_CreateConnection(const char* hostName)
         LogError("HTTPAPI_CreateConnection: malloc error");
         return NULL;
     }
+    memset(hdl, '\0', sizeof(EspHttpApiHandle));
 
     hdl->server = strdup(hostName);
     if (! hdl->server) {
@@ -170,7 +185,7 @@ HTTPAPI_RESULT HTTPAPI_ExecuteRequest(HTTP_HANDLE handle,
     // Process result
     if (statusCode)
     {
-        *statusCode = esp_http_client_get_status_code(handle->espHdl);
+        *statusCode = (unsigned int)esp_http_client_get_status_code(handle->espHdl);
     }
 
     return HTTPAPI_OK;
@@ -178,6 +193,23 @@ HTTPAPI_RESULT HTTPAPI_ExecuteRequest(HTTP_HANDLE handle,
 
 HTTPAPI_RESULT HTTPAPI_SetOption(HTTP_HANDLE handle, const char* optionName, const void* value)
 {
+    if ((NULL == handle ) ||
+        (NULL == optionName) ||
+        (NULL == value))
+    {
+        return HTTPAPI_INVALID_ARG;
+    }
+
+    if (0 == strcmp(optionName, OPTION_RESP_CB_FUNC))
+    {
+        RespCbCfgType* respCbCfg = (RespCbCfgType*)value;
+        handle->respCb = respCbCfg->respCb;
+        handle->respArg = respCbCfg->respArg;
+        handle->statusCode = respCbCfg->statusCode;
+
+        return HTTPAPI_OK;
+    }
+
     return HTTPAPI_INVALID_ARG; // No options are supported
 }
 
@@ -283,6 +315,7 @@ static esp_err_t httpEventHandler(esp_http_client_event_t *evt)
     case HTTP_EVENT_ON_HEADER: // Called on reception of a header line
     {
         HTTP_HEADERS_HANDLE respHdr = hdl->respHdr;
+
         if (respHdr)
         {
             if (HTTP_HEADERS_OK != HTTPHeaders_AddHeaderNameValuePair(respHdr, evt->header_key, evt->header_value))
@@ -294,14 +327,25 @@ static esp_err_t httpEventHandler(esp_http_client_event_t *evt)
     }
     case HTTP_EVENT_ON_DATA: // Called on reception of body
     {
-        BUFFER_HANDLE respBody = hdl->respBody;
-        if (respBody)
+        if (hdl->respCb)
+        { // Custom callback
+            if (hdl->statusCode && !*hdl->statusCode) {
+                // Fetch status code as fast as possible
+                *hdl->statusCode = (unsigned int)esp_http_client_get_status_code(hdl->espHdl);
+            }
+            hdl->respCb(hdl->respArg, evt->data, evt->data_len);
+        }
+        else
         {
-            if (evt->data_len)
+            BUFFER_HANDLE respBody = hdl->respBody;
+            if (respBody)
             {
-                if (0 != BUFFER_append_build(respBody, evt->data, evt->data_len))
+                if (evt->data_len)
                 {
-                    LogError("httpEventHandler: BUFFER_append_build failed");
+                    if (0 != BUFFER_append_build(respBody, evt->data, evt->data_len))
+                    {
+                        LogError("httpEventHandler: BUFFER_append_build failed");
+                    }
                 }
             }
         }
