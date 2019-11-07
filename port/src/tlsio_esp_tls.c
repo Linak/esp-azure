@@ -75,7 +75,14 @@ static void enter_tlsio_error_state(TLS_IO_INSTANCE* tls_io_instance)
     if (tls_io_instance->tlsio_state != TLSIO_STATE_ERROR)
     {
         tls_io_instance->tlsio_state = TLSIO_STATE_ERROR;
-        tls_io_instance->on_io_error(tls_io_instance->on_io_error_context);
+        if (tls_io_instance->on_io_error)
+        {
+            tls_io_instance->on_io_error(tls_io_instance->on_io_error_context);
+        }
+        else
+        {
+            LogError("on_io_error not defined");
+        }
     }
 }
 
@@ -484,18 +491,18 @@ static void tlsio_esp_tls_dowork(CONCRETE_IO_HANDLE tls_io)
                 tls_io_instance->tlsio_state = TLSIO_STATE_OPEN;
                 tls_io_instance->on_open_complete(tls_io_instance->on_open_complete_context, IO_OPEN_OK);
             } else if (result == -1) {
-                tls_io_instance->tlsio_state = TLSIO_STATE_ERROR;
+                enter_tlsio_error_state(tls_io_instance);
             }
             }
             break;
         case TLSIO_STATE_OPEN:
             if (dowork_read(tls_io_instance) < 0 && errno != EAGAIN)
             {
-                tls_io_instance->tlsio_state = TLSIO_STATE_ERROR;
+                enter_tlsio_error_state(tls_io_instance);
             }
             if (dowork_send(tls_io_instance) < 0 && errno != EAGAIN)
             {
-                tls_io_instance->tlsio_state = TLSIO_STATE_ERROR;
+                enter_tlsio_error_state(tls_io_instance);
             }
             break;
         case TLSIO_STATE_ERROR:
