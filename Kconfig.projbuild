@@ -2,7 +2,7 @@
 menu "ESP-Azure IoT"
 
 config AZURE_MQTT_OVER_WEBSOCKETS
-   bool "Enable support for MQTT over websockets
+   bool "Enable support for MQTT over websockets"
    default N
    help 
      ESP-Azure by default only supports plain MQTT
