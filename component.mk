@@ -126,15 +126,15 @@ azure-iot-sdk-c/iothub_client/src/iothub.o \
 azure-iot-sdk-c/c-utility/src/http_proxy_io.o \
 azure-iot-sdk-c/c-utility/src/base32.o \
 
-ifdef CONFIG_MQTT_OVER_WEBSOCKETS
+ifdef CONFIG_AZURE_MQTT_OVER_WEBSOCKETS
 COMPONENT_OBJS += \
-	port/src/socketio_esp_lwip.o \
-	azure-iot-sdk-c/c-utility/src/wsio.o \
-	azure-iot-sdk-c/c-utility/src/uws_client.o \
-	azure-iot-sdk-c/c-utility/src/uws_frame_encoder.o \
-	azure-iot-sdk-c/c-utility/src/utf8_checker.o \
-	azure-iot-sdk-c/c-utility/src/gb_rand.o \
-	azure-iot-sdk-c/iothub_client/src/iothubtransportmqtt_websockets.o
+port/src/socketio_esp_lwip.o \
+azure-iot-sdk-c/c-utility/src/wsio.o \
+azure-iot-sdk-c/c-utility/src/uws_client.o \
+azure-iot-sdk-c/c-utility/src/uws_frame_encoder.o \
+azure-iot-sdk-c/c-utility/src/utf8_checker.o \
+azure-iot-sdk-c/c-utility/src/gb_rand.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransportmqtt_websockets.o
 endif
 
 ifdef CONFIG_DEVICE_COMMON_NAME
