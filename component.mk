@@ -141,12 +141,16 @@ ifdef CONFIG_DEVICE_COMMON_NAME
 COMPONENT_OBJS += azure-iot-sdk-c/provisioning_client/src/iothub_auth_client.o
 endif
 
+ifdef CONFIG_AZURE_CUSTOM_CERTIFICATES
+COMPONENT_OBJS += port/src/custom_certs.o
+else
 ifdef CONFIG_TARGET_PLATFORM_ESP8266
 COMPONENT_OBJS += port/src/certs.o
 endif
 
 ifndef CONFIG_TARGET_PLATFORM_ESP8266
 COMPONENT_OBJS += azure-iot-sdk-c/certs/certs.o
+endif
 endif
 
 COMPONENT_SRCDIRS := \
@@ -167,8 +171,10 @@ azure-iot-sdk-c/provisioning_client/src \
 azure-iot-sdk-c/provisioning_client/adapters \
 azure-iot-sdk-c/provisioning_client/deps/utpm/src \
 
+ifndef CONFIG_AZURE_CUSTOM_CERTIFICATES
 ifndef CONFIG_TARGET_PLATFORM_ESP8266
 COMPONENT_SRCDIRS += azure-iot-sdk-c/certs
+endif
 endif
 
 CFLAGS += -Wno-unused-function -Wno-missing-braces -Wno-missing-field-initializers -DHSM_TYPE_X509 -DHSM_TYPE_SAS_TOKEN
