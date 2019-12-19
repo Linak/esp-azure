@@ -8,5 +8,12 @@ config AZURE_MQTT_OVER_WEBSOCKETS
      ESP-Azure by default only supports plain MQTT
      Enabling this flag makes support for MQTT over websockets
 
+config AZURE_CUSTOM_CERTIFICATES
+   bool "Enable support for custom certificates"
+   default N
+   help
+      Normaly certificates defines in Azure-iot-sdk-c is used.
+      By enabling this flag certificates are read from the file custom_certs.c
+
 endmenu
 

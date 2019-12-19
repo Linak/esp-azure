@@ -24,6 +24,12 @@
 #include "httpapi_adapter.h"
 #include <string.h>
 
+/// The chunksize we want to use for HTTP requests
+#define HTTP_BUFFER_SIZE 2048
+
+/// The time we will wait before giving up on HTTP
+#define HTTP_TIMEOUT_MS  30000
+
 /// Instance data
 typedef struct HTTP_HANDLE_DATA_TAG
 {
@@ -105,6 +111,8 @@ HTTP_HANDLE HTTPAPI_CreateConnection(const char* hostName)
     esp_cfg.host = hdl->server;
     esp_cfg.transport_type = HTTP_TRANSPORT_OVER_SSL;
     esp_cfg.cert_pem = certificates;
+    esp_cfg.buffer_size = HTTP_BUFFER_SIZE;
+    esp_cfg.timeout_ms  = HTTP_TIMEOUT_MS;
 
     char* url = (char*) malloc(strlen(hostName) + 8 + 1); // len https:// + '\0'
     if (!url) {
