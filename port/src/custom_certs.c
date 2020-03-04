@@ -6,7 +6,10 @@
 #include "certs.h"
 
 const char certificates[] =
-/* DigiCert Baltimore Root */
+/* Common Name: DigiCert Baltimore Root */
+/* Valid From: May 12, 2000 */
+/* Valid To: May 12, 2025 */
+/* Issuer: Baltimore CyberTrust Root, Baltimore */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIDdzCCAl+gAwIBAgIEAgAAuTANBgkqhkiG9w0BAQUFADBaMQswCQYDVQQGEwJJ\r\n"
 "RTESMBAGA1UEChMJQmFsdGltb3JlMRMwEQYDVQQLEwpDeWJlclRydXN0MSIwIAYD\r\n"
@@ -28,7 +31,10 @@ const char certificates[] =
 "ksLi4xaNmjICq44Y3ekQEe5+NauQrz4wlHrQMz2nZQ/1/I6eYs9HRCwBXbsdtTLS\r\n"
 "R9I4LtD+gdwyah617jzV/OeBHRnDJELqYzmp\r\n"
 "-----END CERTIFICATE-----\r\n"
-/*DigiCert Global Root CA*/
+/* Common Name: DigiCert Global Root CA */
+/* Valid From : November 9, 2006 */
+/* Valid To : November 9, 2031 */
+/* Issuer: DigiCert Global Root CA, DigiCert Inc */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIDrzCCApegAwIBAgIQCDvgVpBCRrGhdWrJWZHHSjANBgkqhkiG9w0BAQUFADBh\r\n"
 "MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3\r\n"
@@ -51,7 +57,10 @@ const char certificates[] =
 "YSEY1QSteDwsOoBrp+uvFRTp2InBuThs4pFsiv9kuXclVzDAGySj4dzp30d8tbQk\r\n"
 "CAUw7C29C79Fv1C5qfPrmAESrciIxpg0X40KPMbp1ZWVbd4=\r\n"
 "-----END CERTIFICATE-----\r\n"
-/*D-TRUST Root Class 3 CA 2 2009*/
+/* Common Name: D-TRUST Root Class 3 CA 2 2009 */
+/* Valid From : November 5, 2009 */
+/* Valid To : November 5, 2029 */
+/* Issuer: D-TRUST Root Class 3 CA 2 2009, D-Trust GmbH */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIEMzCCAxugAwIBAgIDCYPzMA0GCSqGSIb3DQEBCwUAME0xCzAJBgNVBAYTAkRF\r\n"
 "MRUwEwYDVQQKDAxELVRydXN0IEdtYkgxJzAlBgNVBAMMHkQtVFJVU1QgUm9vdCBD\r\n"
@@ -77,7 +86,10 @@ const char certificates[] =
 "PIWmawomDeCTmGCufsYkl4phX5GOZpIJhzbNi5stPvZR1FDUWSi9g/LMKHtThm3Y\r\n"
 "Johw1+qRzT65ysCQblrGXnRl11z+o+I=\r\n"
 "-----END CERTIFICATE-----\r\n"
-/* Letsencrypt.org/certs/isrgrootx1.pem.txt */
+/* Common Name: ISRG Root X1 */
+/* Valid From : June 4, 2015 */
+/* Valid To : June 4, 2035 */
+/* Issuer: ISRG Root X1, Internet Security Research Group */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIFazCCA1OgAwIBAgIRAIIQz7DSQONZRGPgu2OCiwAwDQYJKoZIhvcNAQELBQAw\r\n"
 "TzELMAkGA1UEBhMCVVMxKTAnBgNVBAoTIEludGVybmV0IFNlY3VyaXR5IFJlc2Vh\r\n"
@@ -109,7 +121,10 @@ const char certificates[] =
 "mRGunUHBcnWEvgJBQl9nJEiU0Zsnvgc/ubhPgXRR4Xq37Z0j4r7g1SgEEzwxA57d\r\n"
 "emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=\r\n"
 "-----END CERTIFICATE-----\r\n"
-/* Amazon */
+/* Common Name: Starfield Services Root Certificate Authority - G2 */
+/* Valid From : September 1, 2009 */
+/* Valid To : June 28, 2034 */
+/* Issuer: Starfield Technologies, Inc. Write review of GoDaddy */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIEdTCCA12gAwIBAgIJAKcOSkw0grd/MA0GCSqGSIb3DQEBCwUAMGgxCzAJBgNV\r\n"
 "BAYTAlVTMSUwIwYDVQQKExxTdGFyZmllbGQgVGVjaG5vbG9naWVzLCBJbmMuMTIw\r\n"
@@ -136,7 +151,11 @@ const char certificates[] =
 "59vPr5KW7ySaNRB6nJHGDn2Z9j8Z3/VyVOEVqQdZe4O/Ui5GjLIAZHYcSNPYeehu\r\n"
 "VsyuLAOQ1xk4meTKCRlb/weWsKh/NEnfVqn3sF/tM+2MR7cwA130A4w=\r\n"
 "-----END CERTIFICATE-----\r\n"
-/* papbox.dk */
+/* Common Name: papbox.dk */
+/* sni182379.cloudflaressl.com */
+/* Valid From : September 20, 2019 */
+/* Valid To : March 29, 2020 */
+/* Issuer: COMODO ECC Domain Validation Secure Server CA 2, COMODO CA Limited Write review of Sectigo */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIGTzCCBfWgAwIBAgIRAPHJ1Wbrio5e5SFk638Div0wCgYIKoZIzj0EAwIwgZIx\r\n"
 "CzAJBgNVBAYTAkdCMRswGQYDVQQIExJHcmVhdGVyIE1hbmNoZXN0ZXIxEDAOBgNV\r\n"
@@ -173,6 +192,10 @@ const char certificates[] =
 "CCqGSM49BAMCA0gAMEUCIEkaj3fPyw02WUYGppMFSv5nC8+z0KrBdxG/oX5T/J8e\r\n"
 "AiEA/0xlM7k/t7JKA8aIJBva0bai0UBMMPt2oDQYOyFGd4s=\r\n"
 "-----END CERTIFICATE-----\r\n"
+/* Common Name: COMODO ECC Domain Validation Secure Server CA 2 */
+/* Valid From : September 24, 2014 */
+/* Valid To : September 24, 2029 */
+/* Issuer: COMODO ECC Certification Authority, COMODO CA Limited Write review of Sectigo */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIDnzCCAyWgAwIBAgIQWyXOaQfEJlVm0zkMmalUrTAKBggqhkjOPQQDAzCBhTEL\r\n"
 "MAkGA1UEBhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UE\r\n"
@@ -195,6 +218,10 @@ const char certificates[] =
 "EQGJbwd6IGZrGNC5LkP3Um8CMBKFfI4TZpIEuppFCZRKMGHRSdxv6+ctyYnPHmp8\r\n"
 "7IXOMCVZuoFwNLg0f+cB0eLLUg==\r\n"
 "-----END CERTIFICATE-----\r\n"
+/* Common Name: COMODO ECC Certification Authority */
+/* Valid From : March 5, 2008 */
+/* Valid To : January 18, 2038 */
+/* Issuer: COMODO ECC Certification Authority, COMODO CA Limited */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIICiTCCAg+gAwIBAgIQH0evqmIAcFBUTAGem2OZKjAKBggqhkjOPQQDAzCBhTEL\r\n"
 "MAkGA1UEBhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UE\r\n"
@@ -211,7 +238,10 @@ const char certificates[] =
 "fQjGGoe9GKhzvSbKYAydzpmfz1wPMOG+FDHqAjAU9JM8SaczepBGR7NjfRObTrdv\r\n"
 "GDeAU/7dIOA1mjbRxwG55tzd8/8dLDoWV9mSOdY=\r\n"
 "-----END CERTIFICATE-----\r\n"
-/* *.linakcloud.com */
+/* Common Name: *.linakcloud.com */
+/* Valid From : March 3, 2020 */
+/* Valid To : March 3, 2021 */
+/* Issuer: Go Daddy Secure Certificate Authority - G2, GoDaddy.com, Inc. Write review of GoDaddy */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIGPjCCBSagAwIBAgIJAKlfWPZ+Fl9cMA0GCSqGSIb3DQEBCwUAMIG0MQswCQYD\r\n"
 "VQQGEwJVUzEQMA4GA1UECBMHQXJpem9uYTETMBEGA1UEBxMKU2NvdHRzZGFsZTEa\r\n"
@@ -248,6 +278,10 @@ const char certificates[] =
 "eKQri4KvXF+o3eESOug2tNqNxioPQfObbnxosEfr9D2U9AaAmB3eWBDSsZDZZZgh\r\n"
 "HQ56laYcoVM5+ihR9brJHDQq\r\n"
 "-----END CERTIFICATE-----\r\n"
+/* Common Name: Go Daddy Secure Certificate Authority - G2 */
+/* Valid From: May 3, 2011 */
+/* Valid To: May 3, 2031 */
+/* Issuer: Go Daddy Root Certificate Authority - G2, GoDaddy.com, Inc. Write review of GoDaddy */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIE0DCCA7igAwIBAgIBBzANBgkqhkiG9w0BAQsFADCBgzELMAkGA1UEBhMCVVMx\r\n"
 "EDAOBgNVBAgTB0FyaXpvbmExEzARBgNVBAcTClNjb3R0c2RhbGUxGjAYBgNVBAoT\r\n"
@@ -276,6 +310,10 @@ const char certificates[] =
 "GIo/ikGQI31bS/6kA1ibRrLDYGCD+H1QQc7CoZDDu+8CL9IVVO5EFdkKrqeKM+2x\r\n"
 "LXY2JtwE65/3YR8V3Idv7kaWKK2hJn0KCacuBKONvPi8BDAB\r\n"
 "-----END CERTIFICATE-----\r\n"
+/* Common Name: Go Daddy Root Certificate Authority - G2 */
+/* Valid From: August 31, 2009 */
+/* Valid To: December 31, 2037 */
+/* Issuer: Go Daddy Root Certificate Authority - G2, GoDaddy.com, Inc. */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIDxTCCAq2gAwIBAgIBADANBgkqhkiG9w0BAQsFADCBgzELMAkGA1UEBhMCVVMx\r\n"
 "EDAOBgNVBAgTB0FyaXpvbmExEzARBgNVBAcTClNjb3R0c2RhbGUxGjAYBgNVBAoT\r\n"
