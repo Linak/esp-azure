@@ -151,8 +151,8 @@ const char certificates[] =
 "59vPr5KW7ySaNRB6nJHGDn2Z9j8Z3/VyVOEVqQdZe4O/Ui5GjLIAZHYcSNPYeehu\r\n"
 "VsyuLAOQ1xk4meTKCRlb/weWsKh/NEnfVqn3sF/tM+2MR7cwA130A4w=\r\n"
 "-----END CERTIFICATE-----\r\n"
-/* Common Name: papbox.dk */
-/* sni182379.cloudflaressl.com */
+/* papbox.dk */
+/* Common Name: sni182379.cloudflaressl.com */
 /* Valid From : September 20, 2019 */
 /* Valid To : March 29, 2020 */
 /* Issuer: COMODO ECC Domain Validation Secure Server CA 2, COMODO CA Limited Write review of Sectigo */
