@@ -6,7 +6,10 @@
 #include "certs.h"
 
 const char certificates[] =
-/* DigiCert Baltimore Root */
+/* Common Name: DigiCert Baltimore Root */
+/* Valid From: May 12, 2000 */
+/* Valid To: May 12, 2025 */
+/* Issuer: Baltimore CyberTrust Root, Baltimore */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIDdzCCAl+gAwIBAgIEAgAAuTANBgkqhkiG9w0BAQUFADBaMQswCQYDVQQGEwJJ\r\n"
 "RTESMBAGA1UEChMJQmFsdGltb3JlMRMwEQYDVQQLEwpDeWJlclRydXN0MSIwIAYD\r\n"
@@ -28,7 +31,10 @@ const char certificates[] =
 "ksLi4xaNmjICq44Y3ekQEe5+NauQrz4wlHrQMz2nZQ/1/I6eYs9HRCwBXbsdtTLS\r\n"
 "R9I4LtD+gdwyah617jzV/OeBHRnDJELqYzmp\r\n"
 "-----END CERTIFICATE-----\r\n"
-/*DigiCert Global Root CA*/
+/* Common Name: DigiCert Global Root CA */
+/* Valid From : November 9, 2006 */
+/* Valid To : November 9, 2031 */
+/* Issuer: DigiCert Global Root CA, DigiCert Inc */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIDrzCCApegAwIBAgIQCDvgVpBCRrGhdWrJWZHHSjANBgkqhkiG9w0BAQUFADBh\r\n"
 "MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3\r\n"
@@ -51,7 +57,10 @@ const char certificates[] =
 "YSEY1QSteDwsOoBrp+uvFRTp2InBuThs4pFsiv9kuXclVzDAGySj4dzp30d8tbQk\r\n"
 "CAUw7C29C79Fv1C5qfPrmAESrciIxpg0X40KPMbp1ZWVbd4=\r\n"
 "-----END CERTIFICATE-----\r\n"
-/*D-TRUST Root Class 3 CA 2 2009*/
+/* Common Name: D-TRUST Root Class 3 CA 2 2009 */
+/* Valid From : November 5, 2009 */
+/* Valid To : November 5, 2029 */
+/* Issuer: D-TRUST Root Class 3 CA 2 2009, D-Trust GmbH */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIEMzCCAxugAwIBAgIDCYPzMA0GCSqGSIb3DQEBCwUAME0xCzAJBgNVBAYTAkRF\r\n"
 "MRUwEwYDVQQKDAxELVRydXN0IEdtYkgxJzAlBgNVBAMMHkQtVFJVU1QgUm9vdCBD\r\n"
@@ -77,7 +86,10 @@ const char certificates[] =
 "PIWmawomDeCTmGCufsYkl4phX5GOZpIJhzbNi5stPvZR1FDUWSi9g/LMKHtThm3Y\r\n"
 "Johw1+qRzT65ysCQblrGXnRl11z+o+I=\r\n"
 "-----END CERTIFICATE-----\r\n"
-/* Letsencrypt.org/certs/isrgrootx1.pem.txt */
+/* Common Name: ISRG Root X1 */
+/* Valid From : June 4, 2015 */
+/* Valid To : June 4, 2035 */
+/* Issuer: ISRG Root X1, Internet Security Research Group */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIFazCCA1OgAwIBAgIRAIIQz7DSQONZRGPgu2OCiwAwDQYJKoZIhvcNAQELBQAw\r\n"
 "TzELMAkGA1UEBhMCVVMxKTAnBgNVBAoTIEludGVybmV0IFNlY3VyaXR5IFJlc2Vh\r\n"
@@ -109,7 +121,10 @@ const char certificates[] =
 "mRGunUHBcnWEvgJBQl9nJEiU0Zsnvgc/ubhPgXRR4Xq37Z0j4r7g1SgEEzwxA57d\r\n"
 "emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=\r\n"
 "-----END CERTIFICATE-----\r\n"
-/* Amazon */
+/* Common Name: Starfield Services Root Certificate Authority - G2 */
+/* Valid From : September 1, 2009 */
+/* Valid To : June 28, 2034 */
+/* Issuer: Starfield Technologies, Inc. Write review of GoDaddy */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIEdTCCA12gAwIBAgIJAKcOSkw0grd/MA0GCSqGSIb3DQEBCwUAMGgxCzAJBgNV\r\n"
 "BAYTAlVTMSUwIwYDVQQKExxTdGFyZmllbGQgVGVjaG5vbG9naWVzLCBJbmMuMTIw\r\n"
@@ -137,6 +152,10 @@ const char certificates[] =
 "VsyuLAOQ1xk4meTKCRlb/weWsKh/NEnfVqn3sF/tM+2MR7cwA130A4w=\r\n"
 "-----END CERTIFICATE-----\r\n"
 /* papbox.dk */
+/* Common Name: sni182379.cloudflaressl.com */
+/* Valid From : September 20, 2019 */
+/* Valid To : March 29, 2020 */
+/* Issuer: COMODO ECC Domain Validation Secure Server CA 2, COMODO CA Limited Write review of Sectigo */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIGTzCCBfWgAwIBAgIRAPHJ1Wbrio5e5SFk638Div0wCgYIKoZIzj0EAwIwgZIx\r\n"
 "CzAJBgNVBAYTAkdCMRswGQYDVQQIExJHcmVhdGVyIE1hbmNoZXN0ZXIxEDAOBgNV\r\n"
@@ -173,6 +192,10 @@ const char certificates[] =
 "CCqGSM49BAMCA0gAMEUCIEkaj3fPyw02WUYGppMFSv5nC8+z0KrBdxG/oX5T/J8e\r\n"
 "AiEA/0xlM7k/t7JKA8aIJBva0bai0UBMMPt2oDQYOyFGd4s=\r\n"
 "-----END CERTIFICATE-----\r\n"
+/* Common Name: COMODO ECC Domain Validation Secure Server CA 2 */
+/* Valid From : September 24, 2014 */
+/* Valid To : September 24, 2029 */
+/* Issuer: COMODO ECC Certification Authority, COMODO CA Limited Write review of Sectigo */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIDnzCCAyWgAwIBAgIQWyXOaQfEJlVm0zkMmalUrTAKBggqhkjOPQQDAzCBhTEL\r\n"
 "MAkGA1UEBhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UE\r\n"
@@ -195,6 +218,10 @@ const char certificates[] =
 "EQGJbwd6IGZrGNC5LkP3Um8CMBKFfI4TZpIEuppFCZRKMGHRSdxv6+ctyYnPHmp8\r\n"
 "7IXOMCVZuoFwNLg0f+cB0eLLUg==\r\n"
 "-----END CERTIFICATE-----\r\n"
+/* Common Name: COMODO ECC Certification Authority */
+/* Valid From : March 5, 2008 */
+/* Valid To : January 18, 2038 */
+/* Issuer: COMODO ECC Certification Authority, COMODO CA Limited */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIICiTCCAg+gAwIBAgIQH0evqmIAcFBUTAGem2OZKjAKBggqhkjOPQQDAzCBhTEL\r\n"
 "MAkGA1UEBhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4GA1UE\r\n"
@@ -210,5 +237,104 @@ const char certificates[] =
 "BAUwAwEB/zAKBggqhkjOPQQDAwNoADBlAjEA7wNbeqy3eApyt4jf/7VGFAkK+qDm\r\n"
 "fQjGGoe9GKhzvSbKYAydzpmfz1wPMOG+FDHqAjAU9JM8SaczepBGR7NjfRObTrdv\r\n"
 "GDeAU/7dIOA1mjbRxwG55tzd8/8dLDoWV9mSOdY=\r\n"
+"-----END CERTIFICATE-----\r\n"
+/* Common Name: *.linakcloud.com */
+/* Valid From : March 3, 2020 */
+/* Valid To : March 3, 2021 */
+/* Issuer: Go Daddy Secure Certificate Authority - G2, GoDaddy.com, Inc. Write review of GoDaddy */
+"-----BEGIN CERTIFICATE-----\r\n"
+"MIIGPjCCBSagAwIBAgIJAKlfWPZ+Fl9cMA0GCSqGSIb3DQEBCwUAMIG0MQswCQYD\r\n"
+"VQQGEwJVUzEQMA4GA1UECBMHQXJpem9uYTETMBEGA1UEBxMKU2NvdHRzZGFsZTEa\r\n"
+"MBgGA1UEChMRR29EYWRkeS5jb20sIEluYy4xLTArBgNVBAsTJGh0dHA6Ly9jZXJ0\r\n"
+"cy5nb2RhZGR5LmNvbS9yZXBvc2l0b3J5LzEzMDEGA1UEAxMqR28gRGFkZHkgU2Vj\r\n"
+"dXJlIENlcnRpZmljYXRlIEF1dGhvcml0eSAtIEcyMB4XDTIwMDMwMzEyMTUyMVoX\r\n"
+"DTIxMDMwMzEyMTUyMVowPjEhMB8GA1UECxMYRG9tYWluIENvbnRyb2wgVmFsaWRh\r\n"
+"dGVkMRkwFwYDVQQDDBAqLmxpbmFrY2xvdWQuY29tMIIBIjANBgkqhkiG9w0BAQEF\r\n"
+"AAOCAQ8AMIIBCgKCAQEA4/b7L/Wg1y0v9CbDDg3b+FakNMDlGAV4b670ryysChi+\r\n"
+"3HYyoZs/nAZ/Oqc3bS/XB0ub5cJ8/wQcIZ2jBFLsKs9Walud8tAYaB4Wi4OYjkck\r\n"
+"eNUU1MOVB/ZHqcWGKJ2lSRDOSfN/Lfh0sKIA2c8HyLOR+Tn9Vx4nr4/AkP2o1iqx\r\n"
+"g4FDX9KkXBxS4KFs6qtqd0curXpNu3Z0rCN3uEXysSeH1ZRgPNCnYFwP1t2Mft0t\r\n"
+"5u4SHvJQKu60w6MAYYzi4nteYGDCvXvOsaCBipOrU0Y6tkeGGGtLnJ8ku+jLUtpN\r\n"
+"AlWmONlp9f8WlSPp2QQLCIvwNGquQnATze8ok+bs8wIDAQABo4ICxjCCAsIwDAYD\r\n"
+"VR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDgYDVR0P\r\n"
+"AQH/BAQDAgWgMDgGA1UdHwQxMC8wLaAroCmGJ2h0dHA6Ly9jcmwuZ29kYWRkeS5j\r\n"
+"b20vZ2RpZzJzMS0xNzY5LmNybDBdBgNVHSAEVjBUMEgGC2CGSAGG/W0BBxcBMDkw\r\n"
+"NwYIKwYBBQUHAgEWK2h0dHA6Ly9jZXJ0aWZpY2F0ZXMuZ29kYWRkeS5jb20vcmVw\r\n"
+"b3NpdG9yeS8wCAYGZ4EMAQIBMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYY\r\n"
+"aHR0cDovL29jc3AuZ29kYWRkeS5jb20vMEAGCCsGAQUFBzAChjRodHRwOi8vY2Vy\r\n"
+"dGlmaWNhdGVzLmdvZGFkZHkuY29tL3JlcG9zaXRvcnkvZ2RpZzIuY3J0MB8GA1Ud\r\n"
+"IwQYMBaAFEDCvSeOzDSDMKIz1/tss/C0LIDOMCsGA1UdEQQkMCKCECoubGluYWtj\r\n"
+"bG91ZC5jb22CDmxpbmFrY2xvdWQuY29tMB0GA1UdDgQWBBR+xAPNN9v1u2uNWkIH\r\n"
+"N7GE0dFGxDCCAQMGCisGAQQB1nkCBAIEgfQEgfEA7wB1AKS5CZC0GFgUh7sTosxn\r\n"
+"cAo8NZgE+RvfuON3zQ7IDdwQAAABcKBSc4wAAAQDAEYwRAIgTdxZQocCdIh4qJgx\r\n"
+"lM8hHQjoN39Pc01sYpr1FMmgUNsCIHguP4uMzYfxNER/jLKIx4mdNxfhC73/y3e9\r\n"
+"kYblGQXZAHYARJRlLrDuzq/EQAfYqP4owNrmgr7YyzG1P9MzlrW2gagAAAFwoFJ1\r\n"
+"swAABAMARzBFAiEA+I25CXVjY26Zcyb2m3vG5vrq49K82MZ8BDDPISDvCWUCIG2L\r\n"
+"AJkSQNgC8+PQY4DG/+HofhmZWdGCwW5xigbvoIHTMA0GCSqGSIb3DQEBCwUAA4IB\r\n"
+"AQBeYGf51K8hJqIIeuOj1D+nFNL1VSuyN/XJ7hG13IZwfRb3dzSyhdgNzIRTTaLm\r\n"
+"WLjQg3J6q9R9OVoz6EfXZ9RAUk65t3falwz/1ALJGfEhnGM8odEvQ0TqhcXnO6lt\r\n"
+"lItAWln3XTfq5tQCquS4dHvEZ9sVJWo4H5ncW9Z1zyyDArKAanuFyLrHMggJeR4F\r\n"
+"q8uqElOTeiOg/J3B9aunYzMAoY5hJgSmk65gK4F7zV7g5VeREsNdJ3rT3xu75n4F\r\n"
+"eKQri4KvXF+o3eESOug2tNqNxioPQfObbnxosEfr9D2U9AaAmB3eWBDSsZDZZZgh\r\n"
+"HQ56laYcoVM5+ihR9brJHDQq\r\n"
+"-----END CERTIFICATE-----\r\n"
+/* Common Name: Go Daddy Secure Certificate Authority - G2 */
+/* Valid From: May 3, 2011 */
+/* Valid To: May 3, 2031 */
+/* Issuer: Go Daddy Root Certificate Authority - G2, GoDaddy.com, Inc. Write review of GoDaddy */
+"-----BEGIN CERTIFICATE-----\r\n"
+"MIIE0DCCA7igAwIBAgIBBzANBgkqhkiG9w0BAQsFADCBgzELMAkGA1UEBhMCVVMx\r\n"
+"EDAOBgNVBAgTB0FyaXpvbmExEzARBgNVBAcTClNjb3R0c2RhbGUxGjAYBgNVBAoT\r\n"
+"EUdvRGFkZHkuY29tLCBJbmMuMTEwLwYDVQQDEyhHbyBEYWRkeSBSb290IENlcnRp\r\n"
+"ZmljYXRlIEF1dGhvcml0eSAtIEcyMB4XDTExMDUwMzA3MDAwMFoXDTMxMDUwMzA3\r\n"
+"MDAwMFowgbQxCzAJBgNVBAYTAlVTMRAwDgYDVQQIEwdBcml6b25hMRMwEQYDVQQH\r\n"
+"EwpTY290dHNkYWxlMRowGAYDVQQKExFHb0RhZGR5LmNvbSwgSW5jLjEtMCsGA1UE\r\n"
+"CxMkaHR0cDovL2NlcnRzLmdvZGFkZHkuY29tL3JlcG9zaXRvcnkvMTMwMQYDVQQD\r\n"
+"EypHbyBEYWRkeSBTZWN1cmUgQ2VydGlmaWNhdGUgQXV0aG9yaXR5IC0gRzIwggEi\r\n"
+"MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC54MsQ1K92vdSTYuswZLiBCGzD\r\n"
+"BNliF44v/z5lz4/OYuY8UhzaFkVLVat4a2ODYpDOD2lsmcgaFItMzEUz6ojcnqOv\r\n"
+"K/6AYZ15V8TPLvQ/MDxdR/yaFrzDN5ZBUY4RS1T4KL7QjL7wMDge87Am+GZHY23e\r\n"
+"cSZHjzhHU9FGHbTj3ADqRay9vHHZqm8A29vNMDp5T19MR/gd71vCxJ1gO7GyQ5HY\r\n"
+"pDNO6rPWJ0+tJYqlxvTV0KaudAVkV4i1RFXULSo6Pvi4vekyCgKUZMQWOlDxSq7n\r\n"
+"eTOvDCAHf+jfBDnCaQJsY1L6d8EbyHSHyLmTGFBUNUtpTrw700kuH9zB0lL7AgMB\r\n"
+"AAGjggEaMIIBFjAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBBjAdBgNV\r\n"
+"HQ4EFgQUQMK9J47MNIMwojPX+2yz8LQsgM4wHwYDVR0jBBgwFoAUOpqFBxBnKLbv\r\n"
+"9r0FQW4gwZTaD94wNAYIKwYBBQUHAQEEKDAmMCQGCCsGAQUFBzABhhhodHRwOi8v\r\n"
+"b2NzcC5nb2RhZGR5LmNvbS8wNQYDVR0fBC4wLDAqoCigJoYkaHR0cDovL2NybC5n\r\n"
+"b2RhZGR5LmNvbS9nZHJvb3QtZzIuY3JsMEYGA1UdIAQ/MD0wOwYEVR0gADAzMDEG\r\n"
+"CCsGAQUFBwIBFiVodHRwczovL2NlcnRzLmdvZGFkZHkuY29tL3JlcG9zaXRvcnkv\r\n"
+"MA0GCSqGSIb3DQEBCwUAA4IBAQAIfmyTEMg4uJapkEv/oV9PBO9sPpyIBslQj6Zz\r\n"
+"91cxG7685C/b+LrTW+C05+Z5Yg4MotdqY3MxtfWoSKQ7CC2iXZDXtHwlTxFWMMS2\r\n"
+"RJ17LJ3lXubvDGGqv+QqG+6EnriDfcFDzkSnE3ANkR/0yBOtg2DZ2HKocyQetawi\r\n"
+"DsoXiWJYRBuriSUBAA/NxBti21G00w9RKpv0vHP8ds42pM3Z2Czqrpv1KrKQ0U11\r\n"
+"GIo/ikGQI31bS/6kA1ibRrLDYGCD+H1QQc7CoZDDu+8CL9IVVO5EFdkKrqeKM+2x\r\n"
+"LXY2JtwE65/3YR8V3Idv7kaWKK2hJn0KCacuBKONvPi8BDAB\r\n"
+"-----END CERTIFICATE-----\r\n"
+/* Common Name: Go Daddy Root Certificate Authority - G2 */
+/* Valid From: August 31, 2009 */
+/* Valid To: December 31, 2037 */
+/* Issuer: Go Daddy Root Certificate Authority - G2, GoDaddy.com, Inc. */
+"-----BEGIN CERTIFICATE-----\r\n"
+"MIIDxTCCAq2gAwIBAgIBADANBgkqhkiG9w0BAQsFADCBgzELMAkGA1UEBhMCVVMx\r\n"
+"EDAOBgNVBAgTB0FyaXpvbmExEzARBgNVBAcTClNjb3R0c2RhbGUxGjAYBgNVBAoT\r\n"
+"EUdvRGFkZHkuY29tLCBJbmMuMTEwLwYDVQQDEyhHbyBEYWRkeSBSb290IENlcnRp\r\n"
+"ZmljYXRlIEF1dGhvcml0eSAtIEcyMB4XDTA5MDkwMTAwMDAwMFoXDTM3MTIzMTIz\r\n"
+"NTk1OVowgYMxCzAJBgNVBAYTAlVTMRAwDgYDVQQIEwdBcml6b25hMRMwEQYDVQQH\r\n"
+"EwpTY290dHNkYWxlMRowGAYDVQQKExFHb0RhZGR5LmNvbSwgSW5jLjExMC8GA1UE\r\n"
+"AxMoR28gRGFkZHkgUm9vdCBDZXJ0aWZpY2F0ZSBBdXRob3JpdHkgLSBHMjCCASIw\r\n"
+"DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL9xYgjx+lk09xvJGKP3gElY6SKD\r\n"
+"E6bFIEMBO4Tx5oVJnyfq9oQbTqC023CYxzIBsQU+B07u9PpPL1kwIuerGVZr4oAH\r\n"
+"/PMWdYA5UXvl+TW2dE6pjYIT5LY/qQOD+qK+ihVqf94Lw7YZFAXK6sOoBJQ7Rnwy\r\n"
+"DfMAZiLIjWltNowRGLfTshxgtDj6AozO091GB94KPutdfMh8+7ArU6SSYmlRJQVh\r\n"
+"GkSBjCypQ5Yj36w6gZoOKcUcqeldHraenjAKOc7xiID7S13MMuyFYkMlNAJWJwGR\r\n"
+"tDtwKj9useiciAF9n9T521NtYJ2/LOdYq7hfRvzOxBsDPAnrSTFcaUaz4EcCAwEA\r\n"
+"AaNCMEAwDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMCAQYwHQYDVR0OBBYE\r\n"
+"FDqahQcQZyi27/a9BUFuIMGU2g/eMA0GCSqGSIb3DQEBCwUAA4IBAQCZ21151fmX\r\n"
+"WWcDYfF+OwYxdS2hII5PZYe096acvNjpL9DbWu7PdIxztDhC2gV7+AJ1uP2lsdeu\r\n"
+"9tfeE8tTEH6KRtGX+rcuKxGrkLAngPnon1rpN5+r5N9ss4UXnT3ZJE95kTXWXwTr\r\n"
+"gIOrmgIttRD02JDHBHNA7XIloKmf7J6raBKZV8aPEjoJpL1E/QYVN8Gb5DKj7Tjo\r\n"
+"2GTzLH4U/ALqn83/B2gX2yKQOC16jdFU8WnjXzPKej17CuPKf1855eJ1usV2GDPO\r\n"
+"LPAvTK33sefOT6jEm0pUBsV/fdUID+Ic/n4XuKxe9tQWskMJDE32p2u0mYRlynqI\r\n"
+"4uJEvlz36hz1\r\n"
 "-----END CERTIFICATE-----\r\n"
 ;
