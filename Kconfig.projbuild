@@ -1,12 +1,35 @@
 
 menu "ESP-Azure IoT"
 
+config AZURE_MQTT
+   bool "Enable support for MQTT"
+   default N
+   help
+     Enabling this flag makes support for MQTT
+
 config AZURE_MQTT_OVER_WEBSOCKETS
    bool "Enable support for MQTT over websockets"
-   default N
-   help 
-     ESP-Azure by default only supports plain MQTT
+   default Y
+   help
      Enabling this flag makes support for MQTT over websockets
+
+config AZURE_AMQP
+   bool "Enable support for AMQP"
+   default N
+   help
+     Enabling this flag makes support for AMQP
+
+config AZURE_AMQP_OVER_WEBSOCKETS
+   bool "Enable support for AMQP over websockets"
+   default N
+   help
+     Enabling this flag makes support for AMQP over websockets
+
+config AZURE_HTTP
+   bool "Enable support for HTTP"
+   default N
+   help
+     Enabling this flag makes support for HTTP
 
 config AZURE_CUSTOM_CERTIFICATES
    bool "Enable support for custom certificates"

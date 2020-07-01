@@ -38,7 +38,6 @@ int platform_init(void)
 const IO_INTERFACE_DESCRIPTION* platform_get_default_tlsio(void)
 {
     return tlsio_pal_get_interface_description();
-    return NULL;
 }
 
 void platform_deinit(void)
