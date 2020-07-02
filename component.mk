@@ -17,6 +17,8 @@ azure-iot-sdk-c/iothub_client/inc \
 azure-iot-sdk-c/serializer/inc \
 azure-iot-sdk-c/umqtt/inc \
 azure-iot-sdk-c/umqtt/inc/azure_umqtt_c \
+azure-iot-sdk-c/uamqp/inc \
+azure-iot-sdk-c/uamqp/inc/azure_uamqp_c \
 azure-iot-sdk-c/deps/parson \
 azure-iot-sdk-c/provisioning_client/inc \
 azure-iot-sdk-c/provisioning_client/adapters \
@@ -79,8 +81,6 @@ azure-iot-sdk-c/iothub_client/src/iothub_client_retry_control.o \
 azure-iot-sdk-c/iothub_client/src/iothub_client_diagnostic.o \
 azure-iot-sdk-c/iothub_client/src/iothub_message.o \
 azure-iot-sdk-c/iothub_client/src/iothubtransport.o \
-azure-iot-sdk-c/iothub_client/src/iothubtransportmqtt.o \
-azure-iot-sdk-c/iothub_client/src/iothubtransport_mqtt_common.o \
 azure-iot-sdk-c/iothub_client/src/iothub_transport_ll_private.o \
 azure-iot-sdk-c/iothub_client/src/version.o \
 \
@@ -126,15 +126,45 @@ azure-iot-sdk-c/iothub_client/src/iothub.o \
 azure-iot-sdk-c/c-utility/src/http_proxy_io.o \
 azure-iot-sdk-c/c-utility/src/base32.o \
 
-ifdef CONFIG_AZURE_MQTT_OVER_WEBSOCKETS
+ifdef CONFIG_AZURE_TRANSPORT_PROTOCOL_HTTP
 COMPONENT_OBJS += \
-port/src/socketio_esp_lwip.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransporthttp.o
+endif
+
+ifdef CONFIG_AZURE_TRANSPORT_PROTOCOL_MQTT
+COMPONENT_OBJS += \
+azure-iot-sdk-c/iothub_client/src/iothubtransportmqtt.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransport_mqtt_common.o
+endif
+
+ifdef CONFIG_AZURE_TRANSPORT_PROTOCOL_MQTT_WEBSOCKET
+COMPONENT_OBJS += \
 azure-iot-sdk-c/c-utility/src/wsio.o \
 azure-iot-sdk-c/c-utility/src/uws_client.o \
 azure-iot-sdk-c/c-utility/src/uws_frame_encoder.o \
 azure-iot-sdk-c/c-utility/src/utf8_checker.o \
 azure-iot-sdk-c/c-utility/src/gb_rand.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransportmqtt.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransport_mqtt_common.o \
 azure-iot-sdk-c/iothub_client/src/iothubtransportmqtt_websockets.o
+endif
+
+ifdef CONFIG_AZURE_TRANSPORT_PROTOCOL_AMQP
+COMPONENT_OBJS += \
+azure-iot-sdk-c/iothub_client/src/iothubtransportamqp.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransport_amqp_common.o
+endif
+
+ifdef CONFIG_AZURE_TRANSPORT_PROTOCOL_AMQP_WEBSOCKET
+COMPONENT_OBJS += \
+azure-iot-sdk-c/c-utility/src/wsio.o \
+azure-iot-sdk-c/c-utility/src/uws_client.o \
+azure-iot-sdk-c/c-utility/src/uws_frame_encoder.o \
+azure-iot-sdk-c/c-utility/src/utf8_checker.o \
+azure-iot-sdk-c/c-utility/src/gb_rand.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransportamqp.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransport_amqp_common.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransportamqp_websockets.o
 endif
 
 ifdef CONFIG_DEVICE_COMMON_NAME
