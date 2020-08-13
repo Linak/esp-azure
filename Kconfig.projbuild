@@ -1,12 +1,35 @@
 
 menu "ESP-Azure IoT"
 
-config AZURE_MQTT_OVER_WEBSOCKETS
-   bool "Enable support for MQTT over websockets"
-   default N
-   help 
-     ESP-Azure by default only supports plain MQTT
-     Enabling this flag makes support for MQTT over websockets
+config AZURE_TRANSPORT_PROTOCOL_HTTP
+   bool "Azure Transport Protocol HTTP"
+   default n
+   help
+     Select the Azure Transport Protocol HTTP
+
+config AZURE_TRANSPORT_PROTOCOL_MQTT
+   bool "Azure Transport Protocol MQTT"
+   default n
+   help
+     Select the Azure Transport Protocol MQTT
+
+config AZURE_TRANSPORT_PROTOCOL_MQTT_WEBSOCKET
+   bool "Azure Transport Protocol MQTT over WEBSOCKET"
+   default y
+   help
+     Select the Azure Transport Protocol MQTT over WEBSOCKET
+
+config AZURE_TRANSPORT_PROTOCOL_AMQP
+   bool "Azure Transport Protocol AMQP"
+   default n
+   help
+     Select the Azure Transport Protocol AMQP
+
+config AZURE_TRANSPORT_PROTOCOL_AMQP_WEBSOCKET
+   bool "Azure Transport Protocol AMQP over WEBSOCKET"
+   default n
+   help
+     Select the Azure Transport Protocol AMQP over WEBSOCKET
 
 config AZURE_CUSTOM_CERTIFICATES
    bool "Enable support for custom certificates"
@@ -16,4 +39,3 @@ config AZURE_CUSTOM_CERTIFICATES
       By enabling this flag certificates are read from the file custom_certs.c
 
 endmenu
-

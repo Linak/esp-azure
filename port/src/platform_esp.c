@@ -8,6 +8,7 @@
 #include "azure_c_shared_utility/platform.h"
 #include "azure_c_shared_utility/xio.h"
 #include "azure_c_shared_utility/tlsio_openssl.h"
+#include "azure_c_shared_utility/wsio.h"
 #include "azure_c_shared_utility/xlogging.h"
 #include "esp_log.h"
 #include "tlsio_pal.h"
@@ -38,7 +39,11 @@ int platform_init(void)
 const IO_INTERFACE_DESCRIPTION* platform_get_default_tlsio(void)
 {
     return tlsio_pal_get_interface_description();
-    return NULL;
+}
+
+const IO_INTERFACE_DESCRIPTION* socketio_get_interface_description(void)
+{
+    return wsio_get_interface_description();
 }
 
 void platform_deinit(void)
