@@ -3,31 +3,31 @@ menu "ESP-Azure IoT"
 
 config AZURE_TRANSPORT_PROTOCOL_HTTP
    bool "Azure Transport Protocol HTTP"
-   default n
+   default N
    help
      Select the Azure Transport Protocol HTTP
 
 config AZURE_TRANSPORT_PROTOCOL_MQTT
    bool "Azure Transport Protocol MQTT"
-   default n
+   default N
    help
      Select the Azure Transport Protocol MQTT
 
 config AZURE_TRANSPORT_PROTOCOL_MQTT_WEBSOCKET
    bool "Azure Transport Protocol MQTT over WEBSOCKET"
-   default y
+   default N
    help
      Select the Azure Transport Protocol MQTT over WEBSOCKET
 
 config AZURE_TRANSPORT_PROTOCOL_AMQP
    bool "Azure Transport Protocol AMQP"
-   default n
+   default N
    help
      Select the Azure Transport Protocol AMQP
 
 config AZURE_TRANSPORT_PROTOCOL_AMQP_WEBSOCKET
    bool "Azure Transport Protocol AMQP over WEBSOCKET"
-   default n
+   default Y
    help
      Select the Azure Transport Protocol AMQP over WEBSOCKET
 
