@@ -70,6 +70,8 @@ azure-iot-sdk-c/c-utility/src/usha.o \
 azure-iot-sdk-c/c-utility/src/vector.o \
 azure-iot-sdk-c/c-utility/src/xio.o \
 azure-iot-sdk-c/c-utility/src/base64.o \
+azure-iot-sdk-c/c-utility/src/uuid.o \
+azure-iot-sdk-c/c-utility/adapters/uniqueid_stub.o \
 \
 \
 azure-iot-sdk-c/iothub_client/src/iothub_device_client_ll.o \
@@ -81,6 +83,19 @@ azure-iot-sdk-c/iothub_client/src/iothub_client_retry_control.o \
 azure-iot-sdk-c/iothub_client/src/iothub_client_diagnostic.o \
 azure-iot-sdk-c/iothub_client/src/iothub_message.o \
 azure-iot-sdk-c/iothub_client/src/iothubtransport.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransportmqtt.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransport_mqtt_common.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransportamqp.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransport_amqp_cbs_auth.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransport_amqp_common.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransport_amqp_connection.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransport_amqp_device.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransport_amqp_messenger.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransport_amqp_telemetry_messenger.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransport_amqp_twin_messenger.o \
+azure-iot-sdk-c/iothub_client/src/iothubtransportamqp_methods.o \
+azure-iot-sdk-c/iothub_client/src/message_queue.o \
+azure-iot-sdk-c/iothub_client/src/uamqp_messaging.o \
 azure-iot-sdk-c/iothub_client/src/iothub_transport_ll_private.o \
 azure-iot-sdk-c/iothub_client/src/version.o \
 \
@@ -88,6 +103,30 @@ azure-iot-sdk-c/iothub_client/src/version.o \
 azure-iot-sdk-c/umqtt/src/mqtt_client.o \
 azure-iot-sdk-c/umqtt/src/mqtt_codec.o \
 azure-iot-sdk-c/umqtt/src/mqtt_message.o \
+\
+azure-iot-sdk-c/uamqp/src/amqp_definitions.o \
+azure-iot-sdk-c/uamqp/src/amqp_frame_codec.o \
+azure-iot-sdk-c/uamqp/src/amqp_management.o \
+azure-iot-sdk-c/uamqp/src/amqpvalue.o \
+azure-iot-sdk-c/uamqp/src/amqpvalue_to_string.o \
+azure-iot-sdk-c/uamqp/src/async_operation.o \
+azure-iot-sdk-c/uamqp/src/cbs.o \
+azure-iot-sdk-c/uamqp/src/connection.o \
+azure-iot-sdk-c/uamqp/src/frame_codec.o \
+azure-iot-sdk-c/uamqp/src/header_detect_io.o \
+azure-iot-sdk-c/uamqp/src/link.o \
+azure-iot-sdk-c/uamqp/src/message.o \
+azure-iot-sdk-c/uamqp/src/message_receiver.o \
+azure-iot-sdk-c/uamqp/src/message_sender.o \
+azure-iot-sdk-c/uamqp/src/messaging.o \
+azure-iot-sdk-c/uamqp/src/sasl_anonymous.o \
+azure-iot-sdk-c/uamqp/src/sasl_frame_codec.o \
+azure-iot-sdk-c/uamqp/src/sasl_mechanism.o \
+azure-iot-sdk-c/uamqp/src/sasl_mssbcbs.o \
+azure-iot-sdk-c/uamqp/src/sasl_plain.o \
+azure-iot-sdk-c/uamqp/src/sasl_server_mechanism.o \
+azure-iot-sdk-c/uamqp/src/saslclientio.o \
+azure-iot-sdk-c/uamqp/src/session.o \
 \
 \
 azure-iot-sdk-c/deps/parson/parson.o \
@@ -191,6 +230,7 @@ azure-iot-sdk-c/c-utility/pal/lwip \
 azure-iot-sdk-c/c-utility/src \
 azure-iot-sdk-c/c-utility/adapters \
 azure-iot-sdk-c/umqtt/src \
+azure-iot-sdk-c/uamqp/src \
 azure-iot-sdk-c/iothub_client/src \
 azure-iot-sdk-c/serializer/src \
 azure-iot-sdk-c/deps/parson \
@@ -207,7 +247,7 @@ COMPONENT_SRCDIRS += azure-iot-sdk-c/certs
 endif
 endif
 
-CFLAGS += -Wno-unused-function -Wno-missing-braces -Wno-missing-field-initializers -DHSM_TYPE_X509 -DHSM_TYPE_SAS_TOKEN
+CFLAGS += -Wno-unknown-pragmas -Wno-enum-compare -Wno-unused-variable -Wno-unused-function -Wno-missing-braces -Wno-missing-field-initializers -DHSM_TYPE_X509 -DHSM_TYPE_SAS_TOKEN
 
 ifdef CONFIG_DEVICE_COMMON_NAME
 CFLAGS += -DUSE_PROV_MODULE
