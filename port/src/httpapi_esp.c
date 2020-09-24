@@ -310,6 +310,7 @@ static bool buildRequest(HTTP_HANDLE handle,
             free(tmpBuf);
         }
     }
+    HTTPHeaders_Free(localHeadersHandle);
 
     return true;
 }
