@@ -6,6 +6,8 @@
 CFLAGS += -DUSE_LWIP_SOCKET_FOR_AZURE_IOT
 
 COMPONENT_ADD_INCLUDEDIRS := \
+port \
+port/inc \
 azure-iot-sdk-c/c-utility/inc \
 azure-iot-sdk-c/c-utility/deps/azure-macro-utils-c/inc \
 azure-iot-sdk-c/c-utility/deps/umock-c/inc \
@@ -71,6 +73,8 @@ azure-iot-sdk-c/c-utility/src/usha.o \
 azure-iot-sdk-c/c-utility/src/vector.o \
 azure-iot-sdk-c/c-utility/src/xio.o \
 azure-iot-sdk-c/c-utility/src/azure_base64.o \
+azure-iot-sdk-c/c-utility/src/uuid.o \
+azure-iot-sdk-c/c-utility/adapters/uniqueid_stub.o \
 \
 \
 azure-iot-sdk-c/iothub_client/src/iothub_device_client_ll.o \

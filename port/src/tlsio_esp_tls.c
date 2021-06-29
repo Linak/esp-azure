@@ -19,6 +19,7 @@
 #include "azure_c_shared_utility/singlylinkedlist.h"
 #include "azure_c_shared_utility/crt_abstractions.h"
 #include "azure_c_shared_utility/tlsio_options.h"
+#include "azure_c_shared_utility/shared_util_options.h"
 
 #include "esp_tls.h"
 
@@ -624,18 +625,30 @@ static int tlsio_esp_tls_setoption(CONCRETE_IO_HANDLE tls_io, const char* option
     }
     else
     {
-        /* Codes_SRS_TLSIO_30_121: [ If the optionName parameter is NULL, tlsio_esp_tls_setoption shall do nothing except log an error and return FAILURE. ]*/
-        /* Codes_SRS_TLSIO_30_122: [ If the value parameter is NULL, tlsio_esp_tls_setoption shall do nothing except log an error and return FAILURE. ]*/
-        /* Codes_SRS_TLSIO_ESP_TLS_COMPACT_30_520 [ The tlsio_esp_tls_setoption shall do nothing and return FAILURE. ]*/
-        TLSIO_OPTIONS_RESULT options_result = tlsio_options_set(&tls_io_instance->options, optionName, value);
-        if (options_result != TLSIO_OPTIONS_RESULT_SUCCESS)
+        if (strcmp(optionName, OPTION_SET_TLS_RENEGOTIATION) == 0)
         {
-            LogError("Failed tlsio_options_set");
+#ifdef CONFIG_MBEDTLS_SSL_RENEGOTIATION
+            result = 0;
+#else
+            LogError("Failed tlsio_options_set, TLS renegotiation not configured");
             result = MU_FAILURE;
+#endif
         }
         else
         {
-            result = 0;
+            /* Codes_SRS_TLSIO_30_121: [ If the optionName parameter is NULL, tlsio_esp_tls_setoption shall do nothing except log an error and return FAILURE. ]*/
+            /* Codes_SRS_TLSIO_30_122: [ If the value parameter is NULL, tlsio_esp_tls_setoption shall do nothing except log an error and return FAILURE. ]*/
+            /* Codes_SRS_TLSIO_ESP_TLS_COMPACT_30_520 [ The tlsio_esp_tls_setoption shall do nothing and return FAILURE. ]*/
+            TLSIO_OPTIONS_RESULT options_result = tlsio_options_set(&tls_io_instance->options, optionName, value);
+            if (options_result != TLSIO_OPTIONS_RESULT_SUCCESS)
+            {
+                LogError("Failed tlsio_options_set");
+                result = MU_FAILURE;
+            }
+            else
+            {
+                result = 0;
+            }
         }
     }
     return result;
