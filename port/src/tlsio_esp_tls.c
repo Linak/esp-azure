@@ -21,6 +21,7 @@
 #include "azure_c_shared_utility/tlsio_options.h"
 #include "azure_c_shared_utility/shared_util_options.h"
 
+#include "../../../platform/esp/esp-idf/components/mbedtls/port/include/mbedtls/esp_config.h"
 #include "esp_tls.h"
 
 typedef struct
