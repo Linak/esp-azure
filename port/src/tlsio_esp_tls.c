@@ -21,8 +21,12 @@
 #include "azure_c_shared_utility/tlsio_options.h"
 #include "azure_c_shared_utility/shared_util_options.h"
 
+#define CONFIG_ESP_TLS_USING_MBEDTLS 1
 #include "../../../platform/esp/esp-idf/components/mbedtls/port/include/mbedtls/esp_config.h"
 #include "esp_tls.h"
+#include "private_include/esp_tls_private.h"
+
+
 
 typedef struct
 {
@@ -133,7 +137,7 @@ static void internal_close(TLS_IO_INSTANCE* tls_io_instance)
     /* Codes_SRS_TLSIO_30_006: [ The phrase "enter TLSIO_STATE_EXT_CLOSED" means the adapter shall forcibly close any existing connections then call the on_io_close_complete function and pass the on_io_close_complete_context that was supplied in tlsio_close_async. ]*/
     /* Codes_SRS_TLSIO_30_051: [ On success, if the underlying TLS does not support asynchronous closing, then the adapter shall enter TLSIO_STATE_EXT_CLOSED immediately after entering TLSIO_STATE_EX_CLOSING. ]*/
 
-    esp_tls_conn_delete(tls_io_instance->esp_tls_handle);
+    esp_tls_conn_destroy(tls_io_instance->esp_tls_handle);
     while (process_and_destroy_head_message(tls_io_instance, IO_SEND_CANCELLED));
     // singlylinkedlist_destroy gets called in the main destroy
 
