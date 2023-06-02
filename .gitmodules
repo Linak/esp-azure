@@ -1,3 +1,4 @@
 [submodule "azure-iot-sdk-c"]
 	path = azure-iot-sdk-c
 	url = ../azure-iot-sdk-c.git
+	branch = linak/azure_hc_sdk_5_0
