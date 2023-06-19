@@ -6,10 +6,7 @@
 #include "certs.h"
 
 const char certificates[] =
-/* Common Name: DigiCert Baltimore Root */
-/* Valid From: May 12, 2000 */
-/* Valid To: May 12, 2025 */
-/* Issuer: Baltimore CyberTrust Root, Baltimore */
+/* Baltimore CyberTrust Root */
 "-----BEGIN CERTIFICATE-----\r\n"
 "MIIDdzCCAl+gAwIBAgIEAgAAuTANBgkqhkiG9w0BAQUFADBaMQswCQYDVQQGEwJJ\r\n"
 "RTESMBAGA1UEChMJQmFsdGltb3JlMRMwEQYDVQQLEwpDeWJlclRydXN0MSIwIAYD\r\n"
@@ -31,6 +28,31 @@ const char certificates[] =
 "ksLi4xaNmjICq44Y3ekQEe5+NauQrz4wlHrQMz2nZQ/1/I6eYs9HRCwBXbsdtTLS\r\n"
 "R9I4LtD+gdwyah617jzV/OeBHRnDJELqYzmp\r\n"
 "-----END CERTIFICATE-----\r\n"
+
+/* DigiCert Global Root G2 */
+"-----BEGIN CERTIFICATE-----\r\n"
+"MIIDjjCCAnagAwIBAgIQAzrx5qcRqaC7KGSxHQn65TANBgkqhkiG9w0BAQsFADBh\r\n"
+"MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3\r\n"
+"d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBH\r\n"
+"MjAeFw0xMzA4MDExMjAwMDBaFw0zODAxMTUxMjAwMDBaMGExCzAJBgNVBAYTAlVT\r\n"
+"MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5j\r\n"
+"b20xIDAeBgNVBAMTF0RpZ2lDZXJ0IEdsb2JhbCBSb290IEcyMIIBIjANBgkqhkiG\r\n"
+"9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuzfNNNx7a8myaJCtSnX/RrohCgiN9RlUyfuI\r\n"
+"2/Ou8jqJkTx65qsGGmvPrC3oXgkkRLpimn7Wo6h+4FR1IAWsULecYxpsMNzaHxmx\r\n"
+"1x7e/dfgy5SDN67sH0NO3Xss0r0upS/kqbitOtSZpLYl6ZtrAGCSYP9PIUkY92eQ\r\n"
+"q2EGnI/yuum06ZIya7XzV+hdG82MHauVBJVJ8zUtluNJbd134/tJS7SsVQepj5Wz\r\n"
+"tCO7TG1F8PapspUwtP1MVYwnSlcUfIKdzXOS0xZKBgyMUNGPHgm+F6HmIcr9g+UQ\r\n"
+"vIOlCsRnKPZzFBQ9RnbDhxSJITRNrw9FDKZJobq7nMWxM4MphQIDAQABo0IwQDAP\r\n"
+"BgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBhjAdBgNVHQ4EFgQUTiJUIBiV\r\n"
+"5uNu5g/6+rkS7QYXjzkwDQYJKoZIhvcNAQELBQADggEBAGBnKJRvDkhj6zHd6mcY\r\n"
+"1Yl9PMWLSn/pvtsrF9+wX3N3KjITOYFnQoQj8kVnNeyIv/iPsGEMNKSuIEyExtv4\r\n"
+"NeF22d+mQrvHRAiGfzZ0JFrabA0UWTW98kndth/Jsw1HKj2ZL7tcu7XUIOGZX1NG\r\n"
+"Fdtom/DzMNU+MeKNhJ7jitralj41E6Vf8PlwUHBHQRFXGU7Aj64GxJUTFy8bJZ91\r\n"
+"8rGOmaFvE7FBcf6IKshPECBV1/MUReXgRPTqh5Uykw7+U0b6LJ3/iyK5S9kJRaTe\r\n"
+"pLiaWN0bfVKfjllDiIGknibVb63dDcY3fe0Dkhvld1927jyNxF1WW6LZZm6zNTfl\r\n"
+"MrY=\r\n"
+"-----END CERTIFICATE-----\r\n"
+
 /* Common Name: DigiCert Global Root CA */
 /* Valid From : November 9, 2006 */
 /* Valid To : November 9, 2031 */
@@ -57,6 +79,7 @@ const char certificates[] =
 "YSEY1QSteDwsOoBrp+uvFRTp2InBuThs4pFsiv9kuXclVzDAGySj4dzp30d8tbQk\r\n"
 "CAUw7C29C79Fv1C5qfPrmAESrciIxpg0X40KPMbp1ZWVbd4=\r\n"
 "-----END CERTIFICATE-----\r\n"
+
 /* Common Name: D-TRUST Root Class 3 CA 2 2009 */
 /* Valid From : November 5, 2009 */
 /* Valid To : November 5, 2029 */
@@ -86,6 +109,7 @@ const char certificates[] =
 "PIWmawomDeCTmGCufsYkl4phX5GOZpIJhzbNi5stPvZR1FDUWSi9g/LMKHtThm3Y\r\n"
 "Johw1+qRzT65ysCQblrGXnRl11z+o+I=\r\n"
 "-----END CERTIFICATE-----\r\n"
+
 /* Common Name: ISRG Root X1 */
 /* Valid From : June 4, 2015 */
 /* Valid To : June 4, 2035 */
@@ -121,6 +145,7 @@ const char certificates[] =
 "mRGunUHBcnWEvgJBQl9nJEiU0Zsnvgc/ubhPgXRR4Xq37Z0j4r7g1SgEEzwxA57d\r\n"
 "emyPxgcYxn/eR44/KJ4EBs+lVDR3veyJm+kXQ99b21/+jh5Xos1AnX5iItreGCc=\r\n"
 "-----END CERTIFICATE-----\r\n"
+
 /* Common Name: Starfield Services Root Certificate Authority - G2 */
 /* Valid From : September 1, 2009 */
 /* Valid To : June 28, 2034 */
@@ -151,6 +176,7 @@ const char certificates[] =
 "59vPr5KW7ySaNRB6nJHGDn2Z9j8Z3/VyVOEVqQdZe4O/Ui5GjLIAZHYcSNPYeehu\r\n"
 "VsyuLAOQ1xk4meTKCRlb/weWsKh/NEnfVqn3sF/tM+2MR7cwA130A4w=\r\n"
 "-----END CERTIFICATE-----\r\n"
+
 /* papbox.dk */
 /* Common Name: sni182379.cloudflaressl.com */
 /* Valid From : September 20, 2019 */
@@ -192,6 +218,7 @@ const char certificates[] =
 "CCqGSM49BAMCA0gAMEUCIEkaj3fPyw02WUYGppMFSv5nC8+z0KrBdxG/oX5T/J8e\r\n"
 "AiEA/0xlM7k/t7JKA8aIJBva0bai0UBMMPt2oDQYOyFGd4s=\r\n"
 "-----END CERTIFICATE-----\r\n"
+
 /* Common Name: COMODO ECC Domain Validation Secure Server CA 2 */
 /* Valid From : September 24, 2014 */
 /* Valid To : September 24, 2029 */
@@ -218,6 +245,7 @@ const char certificates[] =
 "EQGJbwd6IGZrGNC5LkP3Um8CMBKFfI4TZpIEuppFCZRKMGHRSdxv6+ctyYnPHmp8\r\n"
 "7IXOMCVZuoFwNLg0f+cB0eLLUg==\r\n"
 "-----END CERTIFICATE-----\r\n"
+
 /* Common Name: COMODO ECC Certification Authority */
 /* Valid From : March 5, 2008 */
 /* Valid To : January 18, 2038 */
@@ -238,6 +266,7 @@ const char certificates[] =
 "fQjGGoe9GKhzvSbKYAydzpmfz1wPMOG+FDHqAjAU9JM8SaczepBGR7NjfRObTrdv\r\n"
 "GDeAU/7dIOA1mjbRxwG55tzd8/8dLDoWV9mSOdY=\r\n"
 "-----END CERTIFICATE-----\r\n"
+
 /* Common Name: *.linakcloud.com */
 /* Valid From : March 3, 2020 */
 /* Valid To : March 3, 2021 */
@@ -278,6 +307,7 @@ const char certificates[] =
 "eKQri4KvXF+o3eESOug2tNqNxioPQfObbnxosEfr9D2U9AaAmB3eWBDSsZDZZZgh\r\n"
 "HQ56laYcoVM5+ihR9brJHDQq\r\n"
 "-----END CERTIFICATE-----\r\n"
+
 /* Common Name: Go Daddy Secure Certificate Authority - G2 */
 /* Valid From: May 3, 2011 */
 /* Valid To: May 3, 2031 */
@@ -310,6 +340,7 @@ const char certificates[] =
 "GIo/ikGQI31bS/6kA1ibRrLDYGCD+H1QQc7CoZDDu+8CL9IVVO5EFdkKrqeKM+2x\r\n"
 "LXY2JtwE65/3YR8V3Idv7kaWKK2hJn0KCacuBKONvPi8BDAB\r\n"
 "-----END CERTIFICATE-----\r\n"
+
 /* Common Name: Go Daddy Root Certificate Authority - G2 */
 /* Valid From: August 31, 2009 */
 /* Valid To: December 31, 2037 */
