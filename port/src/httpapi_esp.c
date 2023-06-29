@@ -111,6 +111,7 @@ HTTP_HANDLE HTTPAPI_CreateConnection(const char* hostName)
     esp_cfg.host = hdl->server;
     esp_cfg.transport_type = HTTP_TRANSPORT_OVER_SSL;
     esp_cfg.cert_pem = certificates;
+    esp_cfg.buffer_size_tx = HTTP_BUFFER_SIZE;
     esp_cfg.buffer_size = HTTP_BUFFER_SIZE;
     esp_cfg.timeout_ms  = HTTP_TIMEOUT_MS;
 
