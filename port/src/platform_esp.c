@@ -23,7 +23,7 @@ void initialize_sntp(void);
 int platform_init(void)
 {
     initialize_sntp();
-    printf("ESP platform sntp inited!\n");
+    ESP_LOGI(TAG, "ESP platform sntp inited!\n");
     time_t now = sntp_get_current_timestamp();
 
     char strftime_buf[64];
