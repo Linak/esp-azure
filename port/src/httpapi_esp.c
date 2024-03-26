@@ -23,9 +23,7 @@
 #include <stdio.h>
 #include "httpapi_adapter.h"
 #include <string.h>
-#include "esp_log.h"
-
-static const char* TAG = "httpapi_esp";
+#include <azure_c_shared_utility/xlogging.h>
 
 /// The chunksize we want to use for HTTP requests
 #define HTTP_BUFFER_SIZE 2048
@@ -82,8 +80,40 @@ static bool buildRequest(HTTP_HANDLE handle,
 /// Callback from esp_http_client
 static esp_err_t httpEventHandler(esp_http_client_event_t *evt);
 
+#if defined(__GNUC__)
+__attribute__ ((format (printf, 6, 7)))
+#endif
+void httpconsolelogger_log(LOG_CATEGORY log_category, const char* file, const char* func, int line, unsigned int options, const char* format, ...)
+{
+    time_t t;
+    va_list args;
+    va_start(args, format);
+
+    switch (log_category)
+    {
+    case AZ_LOG_INFO:
+        (void)printf("Info: ");
+        break;
+    case AZ_LOG_ERROR:
+        (void)printf("Error: File:%s Func:%s Line:%d ", file, func, line);
+        break;
+    default:
+        break;
+    }
+
+    (void)vprintf(format, args);
+    va_end(args);
+
+    (void)log_category;
+    if (options & LOG_LINE)
+    {
+        (void)printf("\r\n");
+    }
+}
+
 HTTPAPI_RESULT HTTPAPI_Init(void)
 {
+    xlogging_set_log_function(httpconsolelogger_log);
     return HTTPAPI_OK;
 }
 
@@ -96,14 +126,14 @@ HTTP_HANDLE HTTPAPI_CreateConnection(const char* hostName)
     HTTP_HANDLE hdl = (HTTP_HANDLE)malloc(sizeof(EspHttpApiHandle));
     if (!hdl)
     {
-        ESP_LOGE(TAG,"HTTPAPI_CreateConnection: malloc error");
+        LogError("HTTPAPI_CreateConnection: malloc error");
         return NULL;
     }
     memset(hdl, '\0', sizeof(EspHttpApiHandle));
 
     hdl->server = strdup(hostName);
     if (! hdl->server) {
-        ESP_LOGE(TAG,"HTTPAPI_CreateConnection: malloc error");
+        LogError("HTTPAPI_CreateConnection: malloc error");
         goto exit1;
     }
 
@@ -120,7 +150,7 @@ HTTP_HANDLE HTTPAPI_CreateConnection(const char* hostName)
 
     char* url = (char*) malloc(strlen(hostName) + 8 + 1); // len https:// + '\0'
     if (!url) {
-        ESP_LOGE(TAG,"HTTPAPI_CreateConnection: malloc error");
+        LogError("HTTPAPI_CreateConnection: malloc error");
         goto exit2;
     }
     sprintf(url, "https://%s", hdl->server);
@@ -129,7 +159,7 @@ HTTP_HANDLE HTTPAPI_CreateConnection(const char* hostName)
     hdl->espHdl = esp_http_client_init(&esp_cfg);
     if (NULL == hdl->espHdl)
     {
-        ESP_LOGE(TAG,"HTTPAPI_CreateConnection: Client init failed");
+        LogError("HTTPAPI_CreateConnection: Client init failed");
         goto exit3;
     }
 
@@ -247,7 +277,7 @@ static bool buildRequest(HTTP_HANDLE handle,
             return false;
         }
 
-        ESP_LOGI(TAG,"HTTPAPI: Forced request to POST");
+        LogInfo("HTTPAPI: Forced request to POST");
         requestType = HTTPAPI_REQUEST_POST;
     }
 
@@ -281,7 +311,7 @@ static bool buildRequest(HTTP_HANDLE handle,
         localHeadersHandle = HTTPHeaders_Alloc();
         if (!localHeadersHandle)
         {
-            ESP_LOGE(TAG,"HTTPAPI: Failed cloning headers");
+            LogError("HTTPAPI: Failed cloning headers");
             return false;
         }
     }
@@ -333,7 +363,7 @@ static esp_err_t httpEventHandler(esp_http_client_event_t *evt)
         {
             if (HTTP_HEADERS_OK != HTTPHeaders_AddHeaderNameValuePair(respHdr, evt->header_key, evt->header_value))
             {
-                ESP_LOGE(TAG,"httpEventHandler: Failded adding key %s", evt->header_key);
+                LogError("httpEventHandler: Failded adding key %s", evt->header_key);
             }
         }
         break;
@@ -357,7 +387,7 @@ static esp_err_t httpEventHandler(esp_http_client_event_t *evt)
                 {
                     if (0 != BUFFER_append_build(respBody, evt->data, evt->data_len))
                     {
-                        ESP_LOGE(TAG,"httpEventHandler: BUFFER_append_build failed");
+                        LogError("httpEventHandler: BUFFER_append_build failed");
                     }
                 }
             }
