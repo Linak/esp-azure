@@ -461,7 +461,12 @@ static int dowork_send(TLS_IO_INSTANCE* tls_io_instance)
                 // This empty else compiles to nothing but helps readability
             }
         }
-        else
+         // According to documentation when mbedtls_ssl_write() returns #MBEDTLS_ERR_SSL_WANT_WRITE/READ,
+         // it must be called later with the *same* arguments,
+         // until it returns a value greater than or equal to 0. When
+         // the function returns #MBEDTLS_ERR_SSL_WANT_WRITE there may be
+         // some partial data in the output buffer, however this is not yet sent.
+        else if (write_result != MBEDTLS_ERR_SSL_WANT_WRITE && write_result != MBEDTLS_ERR_SSL_WANT_READ)
         {
             LogInfo("Error from SSL_write: %d", write_result);
         }
