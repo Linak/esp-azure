@@ -20,6 +20,7 @@
 #include "azure_c_shared_utility/xlogging.h"
 #include "certs.h"
 #include "esp_http_client.h"
+#include "esp_err.h"
 #include <stdio.h>
 #include "httpapi_adapter.h"
 #include <string.h>
@@ -221,6 +222,7 @@ HTTPAPI_RESULT HTTPAPI_ExecuteRequest(HTTP_HANDLE handle,
     esp_err_t err = esp_http_client_perform(handle->espHdl);
     if (ESP_OK != err)
     {
+        LogError("HTTPAPI: esp_http_client_perform failed: %s (0x%x)", esp_err_to_name(err), err);
         return HTTPAPI_SEND_REQUEST_FAILED;
     }
 
@@ -271,9 +273,21 @@ static bool buildRequest(HTTP_HANDLE handle,
 {
     if (contentLength)
     {
-        // Set body
-        if (ESP_OK != esp_http_client_set_post_field(handle->espHdl, (const char*)content, contentLength))
+        // ESP-IDF v6.0: esp_http_client_set_post_field internally calls esp_http_client_get_header
+        // to check for an existing Content-Type. In v6.0 that returns ESP_ERR_NOT_FOUND (instead
+        // of ESP_OK + NULL) when the header is absent, causing set_post_field to bail early.
+        // Pre-apply Content-Type from the caller's headers so the check succeeds.
+        const char* contentType = HTTPHeaders_FindHeaderValue(httpHeadersHandle, "Content-Type");
+        if (contentType)
         {
+            esp_http_client_set_header(handle->espHdl, "Content-Type", contentType);
+        }
+
+        // Set body
+        esp_err_t pfErr = esp_http_client_set_post_field(handle->espHdl, (const char*)content, contentLength);
+        if (ESP_OK != pfErr)
+        {
+            LogError("HTTPAPI: set_post_field failed: %s (0x%x)", esp_err_to_name(pfErr), pfErr);
             return false;
         }
 
@@ -297,8 +311,10 @@ static bool buildRequest(HTTP_HANDLE handle,
     }
 
     // set url
-    if (ESP_OK != esp_http_client_set_url(handle->espHdl, relativePath))
+    esp_err_t urlErr = esp_http_client_set_url(handle->espHdl, relativePath);
+    if (ESP_OK != urlErr)
     {
+        LogError("HTTPAPI: set_url failed: %s (0x%x)", esp_err_to_name(urlErr), urlErr);
         return false;
     }
 
@@ -355,6 +371,9 @@ static esp_err_t httpEventHandler(esp_http_client_event_t *evt)
     HTTP_HANDLE hdl = (HTTP_HANDLE)evt->user_data;
 
     switch(evt->event_id) {
+    case HTTP_EVENT_ERROR:
+        LogError("httpEventHandler: HTTP_EVENT_ERROR");
+        break;
     case HTTP_EVENT_ON_HEADER: // Called on reception of a header line
     {
         HTTP_HEADERS_HANDLE respHdr = hdl->respHdr;
