@@ -25,8 +25,14 @@ static const char* TAG = "platform";
 
 int platform_init(void)
 {
-    initialize_sntp();
-    ESP_LOGI(TAG, "ESP platform sntp inited!");
+    /* SNTP is normally started by the STA_GOT_IP handler (sntp_network_up()),
+     * long before this task runs. Only start it here as a fallback, e.g. on a
+     * platform where the Wi-Fi manager never reported the address. */
+    if (!esp_sntp_enabled())
+    {
+        ESP_LOGW(TAG, "SNTP not started by the network layer, starting it now");
+        initialize_sntp();
+    }
 
     if (!sntp_wait_for_time(PLATFORM_SNTP_INITIAL_WAIT_MS))
     {

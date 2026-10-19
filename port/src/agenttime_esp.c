@@ -41,7 +41,13 @@ void initialize_sntp(void)
 
 void sntp_network_up(void)
 {
-    /* esp_sntp_restart() is a no-op (returns false) when SNTP is not initialised */
+    if (!esp_sntp_enabled())
+    {
+        /* First IP address after boot: start SNTP right away so the first
+         * request goes out before the BLE client occupies the radio. */
+        initialize_sntp();
+        return;
+    }
     if (esp_sntp_restart())
     {
         ESP_LOGI(TAG, "Network up, SNTP request restarted");

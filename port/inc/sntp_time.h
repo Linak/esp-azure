@@ -1,8 +1,12 @@
 // SNTP helpers for the ESP port of the Azure IoT SDK.
 //
-// SNTP is started once by platform_init() and restarted every time the
-// station gets an IP address, so a request fired on a half-configured stack
-// is never left to lwIP's exponential retry back-off.
+// SNTP is started from the STA_GOT_IP handler (sntp_network_up()), i.e. as
+// soon as the stack has an address and a DNS server. This puts the first NTP
+// request on the air before the BLE client starts scanning and connecting;
+// a request lost to Wi-Fi/BLE coexistence costs lwIP's fixed 15 s receive
+// timeout before the next server is tried. Later IP events restart polling,
+// so a request fired on a half-configured stack is never left to lwIP's
+// exponential retry back-off. platform_init() only waits for the clock.
 
 #ifndef SNTP_TIME_H
 #define SNTP_TIME_H
@@ -18,8 +22,8 @@ extern "C" {
 /// a second call restarts an already running client.
 void initialize_sntp(void);
 
-/// Restart SNTP polling, e.g. when the network interface got an IP address.
-/// No-op when SNTP has not been initialised yet.
+/// Call when the network interface got an IP address. Starts SNTP on the
+/// first call and restarts polling on every later one.
 void sntp_network_up(void);
 
 /// True once the system clock holds a plausible wall-clock time.
