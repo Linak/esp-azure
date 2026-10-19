@@ -13,19 +13,28 @@
 #include "esp_log.h"
 #include "tlsio_pal.h"
 
-#include "lwip/apps/sntp.h"
+#include "esp_sntp.h"
+#include "sntp_time.h"
 
 static const char* TAG = "platform";
 
-time_t sntp_get_current_timestamp();
-void initialize_sntp(void);
+/// Upper bound for the initial time sync wait. The cloud connection is gated
+/// on sntp_time_is_valid() anyway, so this only limits how long startup logs
+/// stay quiet, it does not decide whether the gateway ever connects.
+#define PLATFORM_SNTP_INITIAL_WAIT_MS   (30 * 1000)
 
 int platform_init(void)
 {
     initialize_sntp();
-    ESP_LOGI(TAG, "ESP platform sntp inited!\n");
-    time_t now = sntp_get_current_timestamp();
+    ESP_LOGI(TAG, "ESP platform sntp inited!");
 
+    if (!sntp_wait_for_time(PLATFORM_SNTP_INITIAL_WAIT_MS))
+    {
+        ESP_LOGW(TAG, "Time not synced yet, SNTP keeps retrying in the background");
+        return 0;
+    }
+
+    time_t now = time(NULL);
     char strftime_buf[64];
     struct tm timeinfo;
 
@@ -48,7 +57,7 @@ const IO_INTERFACE_DESCRIPTION* socketio_get_interface_description(void)
 
 void platform_deinit(void)
 {
-      sntp_stop();
+    esp_sntp_stop();
 }
 
 STRING_HANDLE platform_get_platform_info(PLATFORM_INFO_OPTION options)
